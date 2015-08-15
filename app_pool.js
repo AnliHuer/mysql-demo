@@ -8,13 +8,19 @@ var pool = mysql.createPool({
   password : '',
   database : 'web_demo'
 });
+var conn;
+
+app.get('*', function(req, res, next) {
+  pool.getConnection(function(err, connection) {
+    conn = connection;
+    next();
+  });
+})
 
 app.get('/', function(req, res, next) {
-  pool.getConnection(function(err, connection) {
-    connection.query('SELECT * FROM todos', function(err, rows) {
-      res.send(rows);
-      connection.release();
-    });
+  conn.query('SELECT * FROM todos', function(err, rows) {
+    res.send(rows);
+    conn.release();
   });
 })
 
