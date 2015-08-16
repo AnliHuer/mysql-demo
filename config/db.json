@@ -1,0 +1,14 @@
+{
+  "development": {
+    "host"     : "localhost",
+    "user"     : "root",
+    "password" : "",
+    "database" : "web_demo"
+  },
+  "production": {
+    "host"     : "localhost",
+    "user"     : "root",
+    "password" : "",
+    "database" : "another_dom"
+  }
+}

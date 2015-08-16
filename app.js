@@ -2,7 +2,6 @@ var express = require('express');
 var mysql = require('mysql');
 
 var app = express();
-
 var connection;
 
 app.get('*', function(res, req, next) {
@@ -13,11 +12,7 @@ app.get('*', function(res, req, next) {
     database : 'web_demo'
   });
   connection.connect(function(err) {
-    if(err) {
-      throw err;
-    } else {
-      next();
-    }
+    next();
   })
 })
 
